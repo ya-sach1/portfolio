@@ -35,9 +35,7 @@
 			href="https://avatars.githubusercontent.com/u/62260409?s=400&u=73483f6b0af8c590bef322b279df5a9365bccd8d&v=4"
 		/>
 	</head>
-	<body
-		class="dark:bg-gray-900 bg-rose-50 flex items-center justify-center flex-col dark:text-white text-gray-900 font-mono min-h-screen"
-	>
+	<body class="bg-gray-900 flex items-center justify-center flex-col text-white font-mono min-h-screen">
 		<div class="mx-auto p-8">
 			<img
 				src="https://avatars.githubusercontent.com/u/62260409?s=400&u=73483f6b0af8c590bef322b279df5a9365bccd8d&v=4"
@@ -59,23 +57,7 @@
 						><i class="fa fa-envelope-o"></i
 					></a>
 				</div>
-				<p class="font-thin text-xs animate-pulse">
-					( yes they are rotated on purpose randomly every time you refresh the page)
-				</p>
 			</div>
 		</div>
-		<script>
-			const avaiableRotations = [90, 180, 270, 360].map((v) => `fa-rotate-${v}`);
-
-			document
-				.querySelectorAll('i')
-				.forEach((v) =>
-					v.classList.add(
-						'hover:text-gray-400',
-						'transition-all',
-						avaiableRotations[Math.floor(Math.random() * avaiableRotations.length)],
-					),
-				);
-		</script>
 	</body>
 </html>
