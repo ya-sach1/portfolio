@@ -1,16 +1,16 @@
 const avaiableRotations = [90, 180, 270, 360].map((v) => `fa-rotate-${v}`);
-const iframes = document.querySelectorAll('i');
+const icon = document.querySelectorAll('i');
 const old = [];
 
-iframes.forEach((v) => {
+icon.forEach((v) => {
 	const currentRotation = avaiableRotations[Math.floor(Math.random() * avaiableRotations.length)];
-	v.classList.add('hover:text-gray-400', 'transition-all', currentRotation);
+	v.classList.add(currentRotation, 'tempfix');
 	old.push(currentRotation);
 });
 
 const rotate = () =>
 	old.map((v) => {
-		iframes.forEach((j) => {
+		icon.forEach((j) => {
 			const currentRotation = avaiableRotations[Math.floor(Math.random() * avaiableRotations.length)];
 			j.classList.replace(v, currentRotation);
 			old[old.indexOf(v)] = currentRotation;

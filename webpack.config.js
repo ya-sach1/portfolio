@@ -32,7 +32,7 @@ module.exports = (_env, argv) => ({
 									argv.mode === 'production'
 										? [
 												purgecss({
-													content: ['./src/**/*.html'],
+													content: ['./src/**/*.html', './src/**/*.js'],
 												}),
 												'cssnano',
 										  ]
@@ -85,8 +85,13 @@ module.exports = (_env, argv) => ({
 							filename: f.split('/').slice(1).join('/'),
 							meta: {
 								author: require('./package.json').author,
+								viewport: 'width=device-width, initial-scale=1',
+								title: 'Sach1\'s Website',
+								description: 'This is my mindblowing website.',
+								'theme-color': '#ffc0cb',
 							},
 							hash: argv.mode === 'production',
+							scriptLoading: 'defer',
 						},
 						favicon === null ? {} : { favicon },
 					),
