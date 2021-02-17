@@ -4,8 +4,6 @@
 		<title>sach1</title>
 
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
 		<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Sach1's Website" />
 		<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="Sach1's Website" />
 		<meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
@@ -22,13 +20,22 @@
 			rel="image_src"
 			content="https://avatars.githubusercontent.com/u/62260409?s=400&u=73483f6b0af8c590bef322b279df5a9365bccd8d&v=4"
 		/>
-		<link
-			rel="icon"
-			type="image/png"
-			href="https://avatars.githubusercontent.com/u/62260409?s=400&u=73483f6b0af8c590bef322b279df5a9365bccd8d&v=4"
-		/>
 	</head>
 	<body class="bg-gray-900 flex items-center justify-center flex-col text-white font-mono min-h-screen">
+		<div class="fixed top-10 left-10 no-underline cursor-pointer toggle">
+			<a href="#"><i class="la la-bars la-2x"></i></a>
+		</div>
+
+		<div class="mx-0 p-0 fixed top-0 -left-full w-full h-full bg-gray-800 transition-all menu">
+			<ul class="flex items-center justify-center flex-col min-h-screen font-extrabold text-2xl animate-pulse">
+				<li><a href="/">Home</a></li>
+				<li><a href="/pages/about">About</a></li>
+				<li><a href="/pages/portfolio">Portfolio</a></li>
+			</ul>
+		</div>
+
+		<h1 class="text-lightBlue-500 text-lg font-bold font-sans">Hi I'm sach1, and I use Arch Linux by the way.</h1>
+
 		<div class="mx-auto p-8">
 			<img
 				src="https://avatars.githubusercontent.com/u/62260409?s=400&u=73483f6b0af8c590bef322b279df5a9365bccd8d&v=4"
@@ -36,13 +43,17 @@
 				class="border-solid border-4 rounded-full border-gray-800"
 			/>
 		</div>
+
 		<div>
 			<div class="w-full text-center border-t border-gray-800 p-4">
-				<div class="fa-2x">
-					<a href="https://keybase.io/sach1" rel="noreferrer" target="_blank"><i class="fa fa-key"></i></a>
-					<a href="https://twitter.com/ya_sach1" rel="noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="https://github.com/ya-sach1" rel="noreferrer" target="_blank"><i class="fa fa-github"></i></a>
-					<a href="mailto:sach@i-use-arch-b.tw" rel="noreferrer" target="_blank"><i class="fa fa-envelope-o"></i></a>
+				<div class="la-2x">
+					<a href="https://keybase.io/sach1" rel="noreferrer" target="_blank"
+						><i class="lab la-keybase rotate text-orange-300"></i
+					></a>
+					<a href="https://twitter.com/ya_sach1" rel="noreferrer" target="_blank"
+						><i class="la la-twitter rotate text-lightBlue-500"></i
+					></a>
+					<a href="https://github.com/ya-sach1"><i class="la la-github rotate"></i></a>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
-const avaiableRotations = [90, 180, 270, 360].map((v) => `fa-rotate-${v}`);
-const icon = document.querySelectorAll('i');
+// document.getElementsByClassName('toremove')[0].remove();
+
+const avaiableRotations = [90, 180, 270, 360].map((v) => `la-rotate-${v}`);
+const icon = [...document.getElementsByClassName('rotate')];
 const old = [];
 
 icon.forEach((v) => {

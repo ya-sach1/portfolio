@@ -1,6 +1,5 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const path = require('path');
 const purgecss = require('@fullhuman/postcss-purgecss');
@@ -22,7 +21,7 @@ module.exports = (_env, argv) => ({
 			{
 				test: /\.css$/i,
 				use: [
-					argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+					'style-loader',
 					'css-loader',
 					{
 						loader: 'postcss-loader',
@@ -33,6 +32,7 @@ module.exports = (_env, argv) => ({
 										? [
 												purgecss({
 													content: ['./src/**/*.html', './src/**/*.js'],
+													safelist: [90, 180, 270, 360].map((v) => `la-rotate-${v}`),
 												}),
 												'cssnano',
 										  ]
@@ -53,8 +53,16 @@ module.exports = (_env, argv) => ({
 				},
 			},
 			{
-				test: /\.txt$/i,
-				use: 'file-loader',
+				test: /\.(woff(2)?|ttf|eot|svg)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'fonts/',
+						},
+					},
+				],
 			},
 		].concat(
 			argv.mode === 'production'
@@ -74,31 +82,27 @@ module.exports = (_env, argv) => ({
 				: [],
 		),
 	},
-	plugins: glob
-		.sync('src/**/index.html')
-		.map(
-			(f) =>
-				new HtmlPlugin(
-					Object.assign(
-						{
-							template: f,
-							filename: f.split('/').slice(1).join('/'),
-							meta: {
-								author: require('./package.json').author,
-								viewport: 'width=device-width, initial-scale=1',
-								title: 'Sach1\'s Website',
-								description: 'This is my mindblowing website.',
-								'theme-color': '#ffc0cb',
-							},
-							hash: argv.mode === 'production',
-							scriptLoading: 'defer',
+	plugins: glob.sync('src/**/*.html').map(
+		(f) =>
+			new HtmlPlugin(
+				Object.assign(
+					{
+						template: f,
+						filename: f.split('/').slice(1).join('/'),
+						meta: {
+							author: require('./package.json').author,
+							viewport: 'width=device-width, initial-scale=1',
+							title: "Sach1's Website",
+							description: 'This is my mindblowing website.',
+							'theme-color': '#ffc0cb',
 						},
-						favicon === null ? {} : { favicon },
-					),
+						hash: argv.mode === 'production',
+						scriptLoading: 'defer',
+					},
+					favicon === null ? {} : { favicon },
 				),
-		)
-		.concat(argv.mode === 'production' ? [new MiniCssExtractPlugin()] : []),
-
+			),
+	),
 	optimization: {
 		minimize: argv.mode === 'production',
 		minimizer: [new TerserPlugin()],

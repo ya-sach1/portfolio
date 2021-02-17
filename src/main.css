@@ -5,8 +5,22 @@
 /* purgecss start ignore */
 
 .tempfix {
-  @apply hover:text-gray-400;
-  @apply transition-all;
+	@apply hover:opacity-50;
+	@apply transition-all;
+}
+
+figure {
+	@apply md:flex;
+	@apply md:flex-col;
+	@apply md:justify-center;
+	@apply md:items-center;
+	@apply bg-gray-800;
+	@apply rounded-xl;
+	@apply m-5;
+	@apply max-w-sm;
+  @apply shadow-md;
+  @apply p-4;
+  @apply pt-2;
 }
 
 /* purgecss end ignore */

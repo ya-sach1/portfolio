@@ -1,0 +1,12 @@
+.toggle {
+	z-index: 2;
+}
+
+.menu {
+	z-index: 1;
+}
+
+.menu.activated {
+	left: 0;
+	overflow: auto;
+}
