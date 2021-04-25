@@ -17,10 +17,9 @@ figure {
 	@apply bg-gray-800;
 	@apply rounded-xl;
 	@apply m-5;
-	@apply max-w-sm;
+	@apply max-w-md;
   @apply shadow-md;
   @apply p-4;
-  @apply pt-2;
 }
 
 /* purgecss end ignore */
